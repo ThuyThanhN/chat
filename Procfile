@@ -1,0 +1,1 @@
+web: cd backend && ./gradlew bootJar && java -jar build/libs/*.jar
