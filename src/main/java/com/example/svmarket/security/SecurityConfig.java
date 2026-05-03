@@ -90,7 +90,7 @@ public class SecurityConfig {
     private JwtAuthFilter jwtAuthFilter;
 
     @Autowired
-    private OAuth2SuccessHandler oAuth2SuccessHandler;
+//    private OAuth2SuccessHandler oAuth2SuccessHandler;
 
     // BỎ QUA security cho file tĩnh (QUAN TRỌNG NHẤT để fix 403 avatar)
     @Bean
@@ -172,7 +172,7 @@ public class SecurityConfig {
                 .httpBasic(basic -> basic.disable())
                 
                 // Bật tính năng đăng nhập bằng OAuth2 (Google) và cấu hình Handler khi thành công
-                .oauth2Login(oauth2 -> oauth2.successHandler(oAuth2SuccessHandler))
+//                .oauth2Login(oauth2 -> oauth2.successHandler(oAuth2SuccessHandler))
                 
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
