@@ -1,8 +1,0 @@
-[phases.setup]
-nixPkgs = ["jdk17"]
-
-[phases.build]
-cmds = ["cd backend && ./gradlew build"]
-
-[start]
-cmd = "cd backend && java -jar build/libs/*.jar"
