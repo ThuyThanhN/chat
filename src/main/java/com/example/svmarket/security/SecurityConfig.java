@@ -106,8 +106,7 @@ public class SecurityConfig {
 
         config.setAllowedOrigins(List.of(
                 "http://localhost:5173",
-                "http://localhost:5174",
-                "https://chat-production-aef4.up.railway.app"));
+                "http://localhost:5174"));
         config.setAllowedMethods(List.of("*"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
@@ -122,8 +121,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
-                .cors(cors -> {
-                })
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .csrf(csrf -> csrf.disable())
                 
                 // BỎ cấu hình STATELESS đi vì OAuth2 Login mặc định cần Session để lưu state khi chuyển hướng sang Google
