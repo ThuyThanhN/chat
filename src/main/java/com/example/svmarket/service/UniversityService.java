@@ -3,7 +3,7 @@ package com.example.svmarket.service;
 import com.example.svmarket.dto.UniversityJson;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Service;
-import tools.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.InputStream;
 import java.util.Arrays;
