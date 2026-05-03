@@ -74,8 +74,7 @@ public interface ListingRepository extends JpaRepository<Listing, Integer> {
     List<Listing> filterListingsCustom(
             @Param("keyword") String keyword,
             @Param("university") String university,
-            @Param("categoryId") Integer categoryId,
-            @Param("sortBy") String sortBy);
+            @Param("categoryId") Integer categoryId);
 
     List<Listing> findBySellerIdAndPostSource(Integer sellerId, PostSource postSource);
 }

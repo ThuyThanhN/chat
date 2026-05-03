@@ -263,7 +263,7 @@ public class ListingService {
             String keyword, String university, Integer categoryId, String sortBy) {
 
         List<Listing> listings = listingRepository
-                .filterListingsCustom(keyword, university, categoryId, sortBy);
+                .filterListingsCustom(keyword, university, categoryId);
 
         // 🔥 sort chuẩn
         listings.sort(listingComparator());
