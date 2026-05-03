@@ -82,6 +82,10 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.example.svmarket.util.JwtAuthFilter;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.core.Ordered;
+import org.springframework.web.filter.CorsFilter;
+
 
 @Configuration
 @EnableWebSecurity
@@ -115,6 +119,15 @@ public class SecurityConfig {
         source.registerCorsConfiguration("/**", config);
 
         return source;
+    }
+
+    // Thêm sau corsConfigurationSource()
+    @Bean
+    public FilterRegistrationBean<CorsFilter> corsFilterRegistration() {
+        FilterRegistrationBean<CorsFilter> bean =
+                new FilterRegistrationBean<>(new CorsFilter(corsConfigurationSource()));
+        bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
+        return bean;
     }
 
     // Security chính
